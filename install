@@ -6,6 +6,9 @@ bin=$HOME/bin
 utils=$cwd/utils
 plugm=$home/.vim/autoload/plug.vim
 
+TMUX_CONF=$HOME/.tmux.conf
+TPM=$HOME/.tmux/plugins/tpm
+
 ln -sf $cwd/_vimrc $home/.vimrc
 if [ ! -f $plugm ]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -23,5 +26,19 @@ do
     ln -sf $utils/$file $bin/$file
 done
 echo "Done." 
+
+if [ $(echo "$(tmux -V | cut -c 6-) >= 1.9" | bc) -eq 1 ]; then
+    ln -sf $cwd/_tmux.conf $TMUX_CONF
+    if [ ! -d $TPM ]; then
+        git clone https://github.com/tmux-plugins/tpm $TPM
+    fi
+    echo 'Press C-b I to install plugins in tmux.'
+else
+    ln -sf $cwd/_tmux_legacy.conf $TMUX_CONF
+fi
+
+echo 'Install xsel or xclip to enable copying features in tmux.'
+sleep 2
+tmux
 
 exit 0
