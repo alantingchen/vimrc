@@ -1,6 +1,6 @@
 # vimrc
 
-personal vim config
+personal vim configure
 
 ## install:
 ```
