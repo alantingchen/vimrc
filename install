@@ -3,7 +3,7 @@
 home=$HOME
 cwd=$(pwd)
 bin=$HOME/bin
-utils=$cmd/utils
+utils=$cwd/utils
 plugm=$home/.vim/autoload/plug.vim
 
 ln -sf $cwd/_vimrc $home/.vimrc
