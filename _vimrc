@@ -295,6 +295,13 @@ let OmniCpp_MayCompleteScope = 1
 set foldmethod=syntax
 set foldlevel=100
 
+" map enter key
+inoremap <expr> <CR>       pumvisible()?"\<C-Y>":"\<CR>"
+" map ctrl+k to vim complete
+inoremap <expr> <C-J>      pumvisible()?"\<C-N>":"\<C-X><C-N>"
+" map ctrl+j to omnicppcomplete
+inoremap <expr> <C-K>      pumvisible()?"\<C-P>":"\<C-X><C-O>"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " echofunc
 let g:EchoFuncKeyPrev="<C-p>"
