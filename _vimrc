@@ -209,7 +209,7 @@ set helplang=cn
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NerdTree
 let NERDTreeWinPos="left"
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
+nnoremap <silent> <F8> :NERDTreeToggle<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -353,7 +353,7 @@ nnoremap <F2>c O/** */<Left><Left>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" YankRing
 let g:yankring_history_file = '.yankring_history'
-nnoremap <silent> <F6> :YRShow<CR>
+nnoremap <silent> <F7> :YRShow<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CCTree
