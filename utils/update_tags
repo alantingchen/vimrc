@@ -1,12 +1,19 @@
 #! /bin/sh
 
+GREP_OPTS="(^$)"
+if [ -f .skipdirs ]; then
+    while read line; do
+        GREP_OPTS="${GREP_OPTS}|(^\./${line}/)"
+    done < .skipdirs
+fi
+
 # generate tag file for lookupfile plugin
 #echo -e "!_TAG_FILE_SORTED\t2\t/2=foldcase/" > filenametags
 #find . -regex '.*\.\(c\|h\|cpp\|hpp\|cxx\|hxx\)' -type f -printf "%f\t%p\t1\n" | \
     #sort -f >> filenametags 
 
 # generate ctags.files and cscope.files
-find . -regex '.*\.\(S\|c\|h\|cpp\|hpp\|cxx\|hxx\|java\|py\)' -not -path './.git*' -not -path './.svn*' \( -type f -or -type l \) -printf "%p\n" | xargs readlink -f | sort -f > ctags.files
+find . -regex '.*\.\(S\|c\|h\|cpp\|hpp\|cxx\|hxx\|java\|py\)' -not -path './.git*' -not -path './.svn*' \( -type f -or -type l \) -printf "%p\n" | grep -vE "${GREP_OPTS}" | xargs readlink -f | sort -f > ctags.files
 sed -e 's/^/"/g' -e 's/$/"/g' ctags.files > cscope.files
 
 #cscope -Rbq
