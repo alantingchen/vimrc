@@ -176,6 +176,7 @@ Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/syntastic'
+Plug 'nelstrom/vim-visual-star-search'
 
 call plug#end()
 
@@ -325,13 +326,13 @@ let g:EchoFuncKeyNext="<C-n>"
 "let g:DoxygenToolkit_returnTag="@Returns "
 "let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
 "let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
-let g:DoxygenToolkit_authorName="Alan"
+let g:DoxygenToolkit_authorName="Alan Chen"
 "let g:DoxygenToolkit_licenseTag="My own license"   <-- !!! Does not end with "\<enter>"
 let g:doxygenToolkit_briefTag_funcName="yes"
-nnoremap <F2>a :DoxAuthor
-nnoremap <F2>f :Dox
-nnoremap <F2>b :DoxBlock
-nnoremap <F2>c O/** */<Left><Left>
+nnoremap <leader>a :DoxAuthor
+nnoremap <leader>d :Dox
+nnoremap <leader>b :DoxBlock
+nnoremap <leader>c O/**  */<Left><Left><Left>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FuzzyFinder
@@ -505,7 +506,7 @@ nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>t :BTags<CR>
 nnoremap <silent> <leader>T :Tags<CR>
 nnoremap <silent> <leader>r :History<CR>
-nnoremap <silent> <leader>c :History:<CR>
+"nnoremap <silent> <leader>c :History:<CR>
 nnoremap <silent> <leader>u :Buffers<CR>
 nnoremap <silent> <leader>g :Ag<CR>
 nnoremap <silent> <leader>G :Ag!<CR>
